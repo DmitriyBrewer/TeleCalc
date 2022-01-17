@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import hops from "./reducer/hopSlice";
-import userReducer from './reducer/userSlice';
+// import hops from "./reducer/hopSlice";
+// import userReducer from './reducer/userSlice';
 import { useDispatch } from 'react-redux'
 
 const rootReducer = combineReducers({
