@@ -5,14 +5,12 @@ import { BottomNavigation } from "@mui/material";
 
 //CheckBox icon
 //Социальны сети
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import PublicIcon from '@mui/icons-material/Public';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-//Мессангер
+//Messanger
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MessageIcon from '@mui/icons-material/Message';
@@ -22,7 +20,6 @@ import InboxIcon from '@mui/icons-material/Inbox';
 
 import SliderMUI from "./SliderMui";
 import CheckBoxMUI from "./CheckBoxMUI";
-
 
 export interface ISlider {
   min: any;
@@ -230,6 +227,7 @@ console.log(checked.instagram);
         icon={<FacebookIcon />} 
         checkedIcon={<FacebookIcon style={{color:'#3f50b5'}}/>}
         coin={'+20р'}
+        disabled={value.min<600? true : false}
         />
         <CheckBoxMUI 
         checked={checked.instagram} 
@@ -237,6 +235,7 @@ console.log(checked.instagram);
         icon={<InstagramIcon />} 
         checkedIcon={<InstagramIcon style={{color:'#3f50b5'}}/>}
         coin={'+20р'}
+        disabled={value.min<350? true : false}
         />
         <CheckBoxMUI 
         checked={checked.vk} 
