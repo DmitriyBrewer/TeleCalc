@@ -2,6 +2,8 @@ import React from "react";
 import "./styles.css";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, AppState, RootState } from "./reducer/store";
 
 //CheckBox icon
 //Социальны сети
