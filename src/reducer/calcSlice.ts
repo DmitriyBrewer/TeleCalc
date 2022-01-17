@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Hops {
+export interface Calc {
   id?: any;
   name?: string;
   alpha?: string;
@@ -11,20 +11,10 @@ export interface Hops {
   boil?: string;
 }
 
-const HOPS = createSlice({
-  name: "hops",
-  initialState: [] as Hops[],
+const CALC = createSlice({
+  name: "calc",
+  initialState: [] as Calc[],
   reducers: {
-    addTodo: (state, action: PayloadAction<number>) => {
-      if (state.length <= 3) {
-        // state.push({ id: Date.now() });
-        state.push({ id: action.payload });
-        return state;
-      }
-    },
-    deleteTodo: (state, action: PayloadAction<number>) => {
-      return state.filter((hop) => hop.id !== action.payload);
-    },
     saveAction: (state, action: PayloadAction<any>) => {
       state = action.payload;
       return state;
@@ -32,4 +22,4 @@ const HOPS = createSlice({
   }
 });
 
-export default HOPS;
+export default CALC;
