@@ -4,6 +4,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
 
 //CheckBox icon
+//Социальны сети
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import PublicIcon from '@mui/icons-material/Public';
@@ -11,6 +12,12 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+//Мессангер
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import MessageIcon from '@mui/icons-material/Message';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import InboxIcon from '@mui/icons-material/Inbox';
 //CheckBox icon
 
 import SliderMUI from "./SliderMui";
@@ -26,6 +33,11 @@ export interface ISlider {
   vk:any;
   pinterest:any;
   linkedin:any;
+  whatsapp:any;
+  telegram:any;
+  message:any;
+  mail:any;
+  inbox:any;
 }
 
 //Slider pharams
@@ -52,17 +64,27 @@ function valuetext(value: number) {
 
 export default function App() {
 
-  const [value, setValue] = React.useState<ISlider>({min: "",sms: "",gb: "", facebook:'',instagram:'', vk:'', pinterest:'', linkedin:''});
-
-  ////Допы
-//
-const [checked, setChecked] = React.useState({
-  facebook:false,
-  instagram:false,
-  vk:false,
-  pinterest:false,
-  linkedin:false
+  const [value, setValue] = React.useState<ISlider>({
+  min: "",sms: "",gb: "", 
+  facebook:'',instagram:'', vk:'', pinterest:'', linkedin:'',
+  whatsapp:'',telegram:'', message:'', mail:'', inbox:''
 });
+
+  const [checked, setChecked] = React.useState({
+    facebook:false,
+    instagram:false,
+    vk:false,
+    pinterest:false,
+    linkedin:false,
+    whatsapp:false,
+    telegram:false,
+    message:false,
+    mail:false,
+    inbox:false
+  });
+
+  ////Дополнит услуги 
+//// Соцсети
 
   const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked({...checked, facebook: event.target.checked});
@@ -99,11 +121,47 @@ const handleCheckboxLinkedIn = (event: React.ChangeEvent<HTMLInputElement>) => {
   } else setValue({ ...value, linkedin: 0 })
 };
 
-//
+// Messanger
+
+const handleCheckboxWhatsApp = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({...checked, whatsapp: event.target.checked});
+  if (!checked.whatsapp){
+    setValue({ ...value, whatsapp: 20})
+  } else setValue({ ...value, whatsapp: 0 })
+};
+
+const handleCheckboxTelegram = (event: React.ChangeEvent<HTMLInputElement>) => {
+setChecked({...checked, telegram: event.target.checked});
+if (!checked.telegram){
+  setValue({ ...value, telegram: 20 })
+} else setValue({ ...value, telegram: 0 })
+};
+
+const handleCheckboxMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
+setChecked({...checked, message: event.target.checked});
+if (!checked.message){
+  setValue({ ...value, message: 20 })
+} else setValue({ ...value, message: 0 })
+};
+
+const handleCheckboxMail = (event: React.ChangeEvent<HTMLInputElement>) => {
+setChecked({...checked, mail: event.target.checked});
+if (!checked.mail){
+  setValue({ ...value, mail: 20 })
+} else setValue({ ...value, mail: 0 })
+};
+
+const handleCheckboxInbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+setChecked({...checked, inbox: event.target.checked});
+if (!checked.inbox){
+  setValue({ ...value, inbox: 20 })
+} else setValue({ ...value, inbox: 0 })
+};
+
 console.log(value);
 console.log(checked.facebook);
 console.log(checked.instagram);
-////Допы
+  ////Дополнит услуги 
 
 
 
@@ -202,6 +260,44 @@ console.log(checked.instagram);
         coin={'+20р'}
         />
       </ul>
+      <h3>Мессенджеры</h3>
+      <ul style={{listStyle:'none', display:'flex'}}>
+        <CheckBoxMUI 
+        checked={checked.whatsapp} 
+        onChange={handleCheckboxWhatsApp} 
+        icon={<WhatsAppIcon />} 
+        checkedIcon={<WhatsAppIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.telegram} 
+        onChange={handleCheckboxTelegram} 
+        icon={<TelegramIcon />} 
+        checkedIcon={<TelegramIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.message} 
+        onChange={handleCheckboxMessage} 
+        icon={<MessageIcon />} 
+        checkedIcon={<MessageIcon style={{color:'#3f50b5'}} />}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.mail} 
+        onChange={handleCheckboxMail} 
+        icon={<MailOutlineIcon />} 
+        checkedIcon={<MailOutlineIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.inbox} 
+        onChange={handleCheckboxInbox} 
+        icon={<InboxIcon />} 
+        checkedIcon={<InboxIcon style={{color:'#3f50b5'}} />}
+        coin={'+20р'}
+        />
+      </ul>
       <BottomNavigation style={{ background: "lightblue" }}>
         <p>{
         (parseFloat(value.min)||0)
@@ -212,6 +308,11 @@ console.log(checked.instagram);
          + (parseFloat(value.vk)||0)
          + (parseFloat(value.pinterest)||0)
          + (parseFloat(value.linkedin)||0)
+         + (parseFloat(value.whatsapp)||0)
+         + (parseFloat(value.telegram)||0)
+         + (parseFloat(value.message)||0)
+         + (parseFloat(value.mail)||0)
+         + (parseFloat(value.inbox)||0)
          + " р/месяц"}
          </p>
       </BottomNavigation>

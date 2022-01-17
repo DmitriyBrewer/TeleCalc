@@ -8,13 +8,15 @@ interface CheckBoxProps {
     icon:any;
     checkedIcon:any;
     coin:string;
+    disabled?:boolean;
   }
 
 
-const CheckBoxMUI:React.FC<CheckBoxProps> = ({checked,onChange,icon, checkedIcon,coin}) => {
+const CheckBoxMUI:React.FC<CheckBoxProps> = ({checked,onChange,icon, checkedIcon,coin, disabled}) => {
     return (
         <li style={{marginLeft:'10px'}}>
         <Checkbox
+            disabled={disabled}
             checked={checked}
             onChange={onChange}
             icon={icon}
