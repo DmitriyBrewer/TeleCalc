@@ -1,25 +1,61 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Calc {
-  id?: any;
-  name?: string;
-  alpha?: string;
-  amount?: string;
-  time?: string;
-  volume?: string;
-  destiny?: string;
-  boil?: string;
-}
-
 const CALC = createSlice({
   name: "calc",
-  initialState: [] as Calc[],
+  initialState: [] ,
   reducers: {
-    saveAction: (state, action: PayloadAction<any>) => {
-      state = action.payload;
-      return state;
-    }
-  }
-});
+    minHandler:(state, action: PayloadAction<any>) => {
+        state = action.payload;
+        return state;
+  },
+  smsHandler:(state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+},
+gbHandler:(state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+},
+checkboxFacebook: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxInstagram: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxVK: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxPinterest: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxLinkedIn: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxWhatsApp: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxTelegram: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxMessage: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxMail: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+  checkboxInbox: (state, action: PayloadAction<any>) => {
+    state = action.payload;
+    return state;
+  },
+}});
 
 export default CALC;

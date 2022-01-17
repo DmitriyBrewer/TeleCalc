@@ -2,8 +2,12 @@ import React from "react";
 import "./styles.css";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
+
+//redux
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, AppState, RootState } from "./reducer/store";
+import CALC from "./reducer/calcSlice";
+//redux
 
 //CheckBox icon
 //Социальны сети
@@ -69,6 +73,10 @@ export default function App() {
   whatsapp:'',telegram:'', message:'', mail:'', inbox:''
 });
 
+//redux
+  const dispatch: AppDispatch = useDispatch();
+//redux
+
   const [checked, setChecked] = React.useState({
     facebook:false,
     instagram:false,
@@ -87,6 +95,7 @@ export default function App() {
 
   const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked({...checked, facebook: event.target.checked});
+    dispatch(CALC.actions.checkboxFacebook(checked.facebook))
     if (!checked.facebook){
       setValue({ ...value, facebook: 20})
     } else setValue({ ...value, facebook: 0 })
@@ -94,6 +103,7 @@ export default function App() {
 
 const handleCheckboxInstagram = (event: React.ChangeEvent<HTMLInputElement>) => {
   setChecked({...checked, instagram: event.target.checked});
+  dispatch(CALC.actions.checkboxInstagram(checked.instagram))
   if (!checked.instagram){
     setValue({ ...value, instagram: 20 })
   } else setValue({ ...value, instagram: 0 })
@@ -101,6 +111,7 @@ const handleCheckboxInstagram = (event: React.ChangeEvent<HTMLInputElement>) => 
 
 const handleCheckboxVK = (event: React.ChangeEvent<HTMLInputElement>) => {
   setChecked({...checked, vk: event.target.checked});
+  dispatch(CALC.actions.checkboxVK(checked.vk))
   if (!checked.vk){
     setValue({ ...value, vk: 20 })
   } else setValue({ ...value, vk: 0 })
@@ -108,6 +119,7 @@ const handleCheckboxVK = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleCheckboxPinterest = (event: React.ChangeEvent<HTMLInputElement>) => {
   setChecked({...checked, pinterest: event.target.checked});
+  dispatch(CALC.actions.checkboxPinterest(checked.pinterest))
   if (!checked.pinterest){
     setValue({ ...value, pinterest: 20 })
   } else setValue({ ...value, pinterest: 0 })
@@ -115,6 +127,7 @@ const handleCheckboxPinterest = (event: React.ChangeEvent<HTMLInputElement>) => 
 
 const handleCheckboxLinkedIn = (event: React.ChangeEvent<HTMLInputElement>) => {
   setChecked({...checked, linkedin: event.target.checked});
+  dispatch(CALC.actions.checkboxLinkedIn(checked.linkedin))
   if (!checked.linkedin){
     setValue({ ...value, linkedin: 20 })
   } else setValue({ ...value, linkedin: 0 })
@@ -124,6 +137,7 @@ const handleCheckboxLinkedIn = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleCheckboxWhatsApp = (event: React.ChangeEvent<HTMLInputElement>) => {
   setChecked({...checked, whatsapp: event.target.checked});
+  dispatch(CALC.actions.checkboxWhatsApp(checked.whatsapp))
   if (!checked.whatsapp){
     setValue({ ...value, whatsapp: 20})
   } else setValue({ ...value, whatsapp: 0 })
@@ -131,6 +145,7 @@ const handleCheckboxWhatsApp = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleCheckboxTelegram = (event: React.ChangeEvent<HTMLInputElement>) => {
 setChecked({...checked, telegram: event.target.checked});
+dispatch(CALC.actions.checkboxTelegram(checked.telegram))
 if (!checked.telegram){
   setValue({ ...value, telegram: 20 })
 } else setValue({ ...value, telegram: 0 })
@@ -138,6 +153,7 @@ if (!checked.telegram){
 
 const handleCheckboxMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
 setChecked({...checked, message: event.target.checked});
+dispatch(CALC.actions.checkboxMessage(checked.message))
 if (!checked.message){
   setValue({ ...value, message: 20 })
 } else setValue({ ...value, message: 0 })
@@ -145,6 +161,7 @@ if (!checked.message){
 
 const handleCheckboxMail = (event: React.ChangeEvent<HTMLInputElement>) => {
 setChecked({...checked, mail: event.target.checked});
+dispatch(CALC.actions.checkboxMail(checked.mail))
 if (!checked.mail){
   setValue({ ...value, mail: 20 })
 } else setValue({ ...value, mail: 0 })
@@ -152,6 +169,7 @@ if (!checked.mail){
 
 const handleCheckboxInbox = (event: React.ChangeEvent<HTMLInputElement>) => {
 setChecked({...checked, inbox: event.target.checked});
+dispatch(CALC.actions.checkboxInbox(checked.inbox))
 if (!checked.inbox){
   setValue({ ...value, inbox: 20 })
 } else setValue({ ...value, inbox: 0 })
@@ -168,14 +186,17 @@ console.log(checked.instagram);
 
 
   const minHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(CALC.actions.minHandler(value.min))
     setValue({ ...value, min: event.target.value });
   };
 
   const smsHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(CALC.actions.smsHandler(value.min))
     setValue({ ...value, sms: event.target.value });
   };
 
   const gbHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(CALC.actions.gbHandler(value.min))
     setValue({ ...value, gb: event.target.value });
   };
 
