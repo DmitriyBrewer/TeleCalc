@@ -191,12 +191,12 @@ console.log(checked.instagram);
   };
 
   const smsHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(CALC.actions.smsHandler(value.min))
+    dispatch(CALC.actions.smsHandler(value.sms))
     setValue({ ...value, sms: event.target.value });
   };
 
   const gbHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(CALC.actions.gbHandler(value.min))
+    dispatch(CALC.actions.gbHandler(value.gb))
     setValue({ ...value, gb: event.target.value });
   };
 

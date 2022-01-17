@@ -2,10 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const CALC = createSlice({
   name: "calc",
-  initialState: [] ,
+  initialState: {} ,
   reducers: {
     minHandler:(state, action: PayloadAction<any>) => {
         state = action.payload;
+        console.log(state)//выводить значение value.min
         return state;
   },
   smsHandler:(state, action: PayloadAction<any>) => {
