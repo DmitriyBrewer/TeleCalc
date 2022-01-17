@@ -2,20 +2,33 @@ import React from "react";
 import "./styles.css";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
+
+//CheckBox icon
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import SliderMUI from "./SliderMui";
+import PublicIcon from '@mui/icons-material/Public';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+//CheckBox icon
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import SliderMUI from "./SliderMui";
+import CheckBoxMUI from "./CheckBoxMUI";
+
 
 export interface ISlider {
   min: any;
   sms: any;
   gb: any;
   facebook:any;
+  instagram:any;
+  vk:any;
+  pinterest:any;
+  linkedin:any;
 }
 
+//Slider pharams
 const marks = [
   {value: 200,label: "200 мин"},{value: 350,label: "350 мин"},
   {value: 600,label: "600 мин"},{value: 650,label: "650 мин"}
@@ -34,22 +47,67 @@ const marksWeb = [
 function valuetext(value: number) {
   return `${value}`;
 }
+//Slider pharams
+
 
 export default function App() {
 
-  const [value, setValue] = React.useState<ISlider>({min: "",sms: "",gb: "", facebook:''});
+  const [value, setValue] = React.useState<ISlider>({min: "",sms: "",gb: "", facebook:'',instagram:'', vk:'', pinterest:'', linkedin:''});
 
-  const [checked, setChecked] = React.useState(false);
+  ////Допы
+//
+const [checked, setChecked] = React.useState({
+  facebook:false,
+  instagram:false,
+  vk:false,
+  pinterest:false,
+  linkedin:false
+});
 
-  const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-    if (!checked){
-      setValue({ ...value, facebook: 10 })
+  const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked({...checked, facebook: event.target.checked});
+    if (!checked.facebook){
+      setValue({ ...value, facebook: 20})
     } else setValue({ ...value, facebook: 0 })
   };
 
-  console.log(checked);
-  console.log(value);
+const handleCheckboxInstagram = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({...checked, instagram: event.target.checked});
+  if (!checked.instagram){
+    setValue({ ...value, instagram: 20 })
+  } else setValue({ ...value, instagram: 0 })
+};
+
+const handleCheckboxVK = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({...checked, vk: event.target.checked});
+  if (!checked.vk){
+    setValue({ ...value, vk: 20 })
+  } else setValue({ ...value, vk: 0 })
+};
+
+const handleCheckboxPinterest = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({...checked, pinterest: event.target.checked});
+  if (!checked.pinterest){
+    setValue({ ...value, pinterest: 20 })
+  } else setValue({ ...value, pinterest: 0 })
+};
+
+const handleCheckboxLinkedIn = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({...checked, linkedin: event.target.checked});
+  if (!checked.linkedin){
+    setValue({ ...value, linkedin: 20 })
+  } else setValue({ ...value, linkedin: 0 })
+};
+
+//
+console.log(value);
+console.log(checked.facebook);
+console.log(checked.instagram);
+////Допы
+
+
+
+  
 
 
   const minHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,29 +166,54 @@ export default function App() {
       />
       <h3>Соцсети</h3>
       <ul style={{listStyle:'none', display:'flex'}}>
-        <li>
-      <Checkbox
-        checked={checked}
-        onChange={handleCheckbox}
-        {...label}
-        icon={<FavoriteBorder />}
-        checkedIcon={<Favorite />}
-      />
-      <p>+20 р</p>
-      </li>
-      <li>
-      <Checkbox
-        checked={checked}
-        onChange={handleCheckbox}
-        {...label}
-        icon={<FavoriteBorder />}
-        checkedIcon={<Favorite />}
-      />
-      <p>+20 р</p>
-      </li>
+        <CheckBoxMUI 
+        checked={checked.facebook} 
+        onChange={handleCheckboxFacebook} 
+        icon={<FacebookIcon />} 
+        checkedIcon={<FacebookIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.instagram} 
+        onChange={handleCheckboxInstagram} 
+        icon={<InstagramIcon />} 
+        checkedIcon={<InstagramIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.vk} 
+        onChange={handleCheckboxVK} 
+        icon={<PublicIcon />} 
+        checkedIcon={<PublicIcon style={{color:'#3f50b5'}} />}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.pinterest} 
+        onChange={handleCheckboxPinterest} 
+        icon={<PinterestIcon />} 
+        checkedIcon={<PinterestIcon style={{color:'#3f50b5'}}/>}
+        coin={'+20р'}
+        />
+        <CheckBoxMUI 
+        checked={checked.linkedin} 
+        onChange={handleCheckboxLinkedIn} 
+        icon={<LinkedInIcon />} 
+        checkedIcon={<LinkedInIcon style={{color:'#3f50b5'}} />}
+        coin={'+20р'}
+        />
       </ul>
       <BottomNavigation style={{ background: "lightblue" }}>
-        <p>{(parseFloat(value.min) + parseFloat(value.sms) + parseFloat(value.gb) +parseFloat(value.facebook)) + " р/месяц"}</p>
+        <p>{
+        (parseFloat(value.min)||0)
+         + (parseFloat(value.sms) ||0)
+         + (parseFloat(value.gb) ||0)
+         + (parseFloat(value.facebook)||0)
+         + (parseFloat(value.instagram)||0)
+         + (parseFloat(value.vk)||0)
+         + (parseFloat(value.pinterest)||0)
+         + (parseFloat(value.linkedin)||0)
+         + " р/месяц"}
+         </p>
       </BottomNavigation>
     </div>
   );
