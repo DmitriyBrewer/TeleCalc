@@ -73,6 +73,7 @@ export default function App() {
   facebook:'',instagram:'', vk:'', pinterest:'', linkedin:'',
   whatsapp:'',telegram:'', message:'', mail:'', inbox:''
 });
+  const [apivalue, setApiValue] = React.useState("")
 
 //redux
   const dispatch: AppDispatch = useDispatch();
@@ -181,21 +182,18 @@ console.log(checked.facebook);
 console.log(checked.instagram);
   ////Дополнит услуги 
 
-
-
+//При любом изменении любого значения, value отправляется на сервер
   useEffect(() => {
     console.log('изменяется значение value');
-    POST()
+    POST(value.min, value.sms, value.gb,value.facebook, value.instagram,value.vk, value.pinterest,value.linkedin, value.whatsapp, value.telegram, value.message, value.mail, value.inbox   )
   },[value]);
+  //При любом изменении любого значения, value отправляется на сервер
 
-  const POST = () =>{
-    const author = "8";
-    const title = "2";
-    const content = "2";
-    const picture = "2";
+
+  const POST = (min:any, sms:any, gb:any, facebook:any, instagram:any, vk:any, pinterest:any, linkedin:any, whatsapp:any, telegram:any, message:any, mail:any, inbox:any) =>{
     axios.post(
         `http://localhost:5000/api/posts`,
-        { author, title, content, picture },
+        {min, sms, gb, facebook, instagram, vk, pinterest, linkedin, whatsapp, telegram, message, mail, inbox},
         {
           headers: { "Content-Type": "application/json" }
         }
@@ -203,6 +201,7 @@ console.log(checked.instagram);
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        setApiValue(res.data)
       })
       .catch((e) => {
         console.log(e.response);
@@ -344,22 +343,7 @@ console.log(checked.instagram);
         />
       </ul>
       <BottomNavigation style={{ background: "lightblue" }}>
-        <p>{
-        (parseFloat(value.min)||0)
-         + (parseFloat(value.sms) ||0)
-         + (parseFloat(value.gb) ||0)
-         + (parseFloat(value.facebook)||0)
-         + (parseFloat(value.instagram)||0)
-         + (parseFloat(value.vk)||0)
-         + (parseFloat(value.pinterest)||0)
-         + (parseFloat(value.linkedin)||0)
-         + (parseFloat(value.whatsapp)||0)
-         + (parseFloat(value.telegram)||0)
-         + (parseFloat(value.message)||0)
-         + (parseFloat(value.mail)||0)
-         + (parseFloat(value.inbox)||0)
-         + " р/месяц"}
-         </p>
+         <p style={{color:'red'}}>{apivalue}</p>
       </BottomNavigation>
     </div>
   );
