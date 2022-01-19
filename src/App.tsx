@@ -5,8 +5,8 @@ import { BottomNavigation } from "@mui/material";
 import axios from "axios";
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, AppState, RootState } from "./reducer/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./reducer/store";
 import CALC from "./reducer/calcSlice";
 //redux
 
@@ -92,9 +92,8 @@ export default function App() {
     inbox:false
   });
 
-  ////Дополнит услуги 
+  ////Handler Доп.услуги 
 //// Соцсети
-
   const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked({...checked, facebook: event.target.checked});
     dispatch(CALC.actions.checkboxFacebook(checked.facebook))
@@ -180,7 +179,7 @@ if (!checked.inbox){
 console.log(value);
 console.log(checked.facebook);
 console.log(checked.instagram);
-  ////Дополнит услуги 
+  ////Handler Доп.услуги 
 
 //При любом изменении любого значения, value отправляется на сервер
   useEffect(() => {
