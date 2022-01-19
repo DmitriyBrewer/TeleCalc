@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./styles.css";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
+import axios from "axios";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
@@ -182,8 +183,31 @@ console.log(checked.instagram);
 
 
 
-  
+  useEffect(() => {
+    console.log('изменяется значение value');
+    POST()
+  },[value]);
 
+  const POST = () =>{
+    const author = "8";
+    const title = "2";
+    const content = "2";
+    const picture = "2";
+    axios.post(
+        `http://localhost:5000/api/posts`,
+        { author, title, content, picture },
+        {
+          headers: { "Content-Type": "application/json" }
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  }
 
   const minHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(CALC.actions.minHandler(value.min))
@@ -199,7 +223,6 @@ console.log(checked.instagram);
     dispatch(CALC.actions.gbHandler(value.gb))
     setValue({ ...value, gb: event.target.value });
   };
-
 
   return (
     <div className="App">

@@ -59,4 +59,6 @@ checkboxFacebook: (state, action: PayloadAction<any>) => {
   },
 }});
 
+export const {minHandler} = CALC.actions
+
 export default CALC;
