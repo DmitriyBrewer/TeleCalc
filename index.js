@@ -7,7 +7,7 @@ import router from "./router.js";
 const PORT = 5000;
 
 const DB_URL =
-  "mongodb+srv://DmitriyBrewer:18091994mityAzx@cluster0.dozbw.mongodb.net/Cluster0?retryWrites=true&w=majority";
+  "mongodb+srv://Test:test@cluster0.5re06.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const app = express();
 
