@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Post = new mongoose.Schema({
+const Tele = new mongoose.Schema({
   min: { type: String },
   sms: { type: String },
   gb: { type: String },
@@ -16,4 +16,4 @@ const Post = new mongoose.Schema({
   inbox: { type: String },
 });
 
-export default mongoose.model("Post", Post); //название 'Post' модель Post
+export default mongoose.model("Tele", Tele); //название 'Tele' модель Tele

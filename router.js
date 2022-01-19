@@ -1,8 +1,8 @@
 import Router from "express";
-import PostController from "./PostController.js";
+import TeleController from "./TeleController.js";
 
 const router = new Router();
 
-router.post("/posts", PostController.create); 
+router.post("/tele", TeleController.create); 
 
 export default router;
