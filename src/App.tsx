@@ -71,6 +71,7 @@ export default function App() {
 });
   const [apivalue, setApiValue] = React.useState("")
   const [visionSMS, setVisionSMS] = React.useState(true)
+
 //redux
   const dispatch: AppDispatch = useDispatch();
 //redux
@@ -88,94 +89,95 @@ export default function App() {
     inbox:false
   });
 
-  ////Handler Доп.услуги 
+////Handler Доп.услуги
 // Соцсети
-  const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked({...checked, facebook: event.target.checked});
-    dispatch(CALC.actions.checkboxFacebook(checked.facebook))
-    if (!checked.facebook){
-      setValue({ ...value, facebook: 20})
-    } else setValue({ ...value, facebook: 0 })
-  };
+const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setChecked({ ...checked, facebook: event.target.checked });
+  dispatch(CALC.actions.checkboxFacebook(checked.facebook));
+  if (!checked.facebook) {
+    setValue({ ...value, facebook: 20 });
+  } else setValue({ ...value, facebook: 0 });
+};
 
-const handleCheckboxInstagram = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setChecked({...checked, instagram: event.target.checked});
-  dispatch(CALC.actions.checkboxInstagram(checked.instagram))
-  if (!checked.instagram){
-    setValue({ ...value, instagram: 20 })
-  } else setValue({ ...value, instagram: 0 })
+const handleCheckboxInstagram = (
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  setChecked({ ...checked, instagram: event.target.checked });
+  dispatch(CALC.actions.checkboxInstagram(checked.instagram));
+  if (!checked.instagram) {
+    setValue({ ...value, instagram: 20 });
+  } else setValue({ ...value, instagram: 0 });
 };
 
 const handleCheckboxVK = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setChecked({...checked, vk: event.target.checked});
-  dispatch(CALC.actions.checkboxVK(checked.vk))
-  if (!checked.vk){
-    setValue({ ...value, vk: 20 })
-  } else setValue({ ...value, vk: 0 })
+  setChecked({ ...checked, vk: event.target.checked });
+  dispatch(CALC.actions.checkboxVK(checked.vk));
+  if (!checked.vk) {
+    setValue({ ...value, vk: 20 });
+  } else setValue({ ...value, vk: 0 });
 };
 
-const handleCheckboxPinterest = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setChecked({...checked, pinterest: event.target.checked});
-  dispatch(CALC.actions.checkboxPinterest(checked.pinterest))
-  if (!checked.pinterest){
-    setValue({ ...value, pinterest: 20 })
-  } else setValue({ ...value, pinterest: 0 })
+const handleCheckboxPinterest = (
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  setChecked({ ...checked, pinterest: event.target.checked });
+  dispatch(CALC.actions.checkboxPinterest(checked.pinterest));
+  if (!checked.pinterest) {
+    setValue({ ...value, pinterest: 20 });
+  } else setValue({ ...value, pinterest: 0 });
 };
 
 const handleCheckboxLinkedIn = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setChecked({...checked, linkedin: event.target.checked});
-  dispatch(CALC.actions.checkboxLinkedIn(checked.linkedin))
-  if (!checked.linkedin){
-    setValue({ ...value, linkedin: 20 })
-  } else setValue({ ...value, linkedin: 0 })
+  setChecked({ ...checked, linkedin: event.target.checked });
+  dispatch(CALC.actions.checkboxLinkedIn(checked.linkedin));
+  if (!checked.linkedin) {
+    setValue({ ...value, linkedin: 20 });
+  } else setValue({ ...value, linkedin: 0 });
 };
 
 // Messanger
 
 const handleCheckboxWhatsApp = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setChecked({...checked, whatsapp: event.target.checked});
-  dispatch(CALC.actions.checkboxWhatsApp(checked.whatsapp))
-  if (!checked.whatsapp){
-    setValue({ ...value, whatsapp: 20})
-  } else setValue({ ...value, whatsapp: 0 })
+  setChecked({ ...checked, whatsapp: event.target.checked });
+  dispatch(CALC.actions.checkboxWhatsApp(checked.whatsapp));
+  if (!checked.whatsapp) {
+    setValue({ ...value, whatsapp: 20 });
+  } else setValue({ ...value, whatsapp: 0 });
 };
 
 const handleCheckboxTelegram = (event: React.ChangeEvent<HTMLInputElement>) => {
-setChecked({...checked, telegram: event.target.checked});
-dispatch(CALC.actions.checkboxTelegram(checked.telegram))
-if (!checked.telegram){
-  setValue({ ...value, telegram: 20 })
-} else setValue({ ...value, telegram: 0 })
+  setChecked({ ...checked, telegram: event.target.checked });
+  dispatch(CALC.actions.checkboxTelegram(checked.telegram));
+  if (!checked.telegram) {
+    setValue({ ...value, telegram: 20 });
+  } else setValue({ ...value, telegram: 0 });
 };
 
 const handleCheckboxMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
-setChecked({...checked, message: event.target.checked});
-dispatch(CALC.actions.checkboxMessage(checked.message))
-if (!checked.message){
-  setValue({ ...value, message: 20 })
-} else setValue({ ...value, message: 0 })
+  setChecked({ ...checked, message: event.target.checked });
+  dispatch(CALC.actions.checkboxMessage(checked.message));
+  if (!checked.message) {
+    setValue({ ...value, message: 20 });
+  } else setValue({ ...value, message: 0 });
 };
 
 const handleCheckboxMail = (event: React.ChangeEvent<HTMLInputElement>) => {
-setChecked({...checked, mail: event.target.checked});
-dispatch(CALC.actions.checkboxMail(checked.mail))
-if (!checked.mail){
-  setValue({ ...value, mail: 20 })
-} else setValue({ ...value, mail: 0 })
+  setChecked({ ...checked, mail: event.target.checked });
+  dispatch(CALC.actions.checkboxMail(checked.mail));
+  if (!checked.mail) {
+    setValue({ ...value, mail: 20 });
+  } else setValue({ ...value, mail: 0 });
 };
 
 const handleCheckboxInbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-setChecked({...checked, inbox: event.target.checked});
-dispatch(CALC.actions.checkboxInbox(checked.inbox))
-if (!checked.inbox){
-  setValue({ ...value, inbox: 20 })
-} else setValue({ ...value, inbox: 0 })
+  setChecked({ ...checked, inbox: event.target.checked });
+  dispatch(CALC.actions.checkboxInbox(checked.inbox));
+  if (!checked.inbox) {
+    setValue({ ...value, inbox: 20 });
+  } else setValue({ ...value, inbox: 0 });
 };
+////Handler Доп.услуги
 
-console.log(value);
-console.log(checked.facebook);
-console.log(checked.instagram);
-  ////Handler Доп.услуги 
 
 //При любом изменении любого значения, value отправляется на сервер
   useEffect(() => {
@@ -184,10 +186,10 @@ console.log(checked.instagram);
   },[value]);
   //При любом изменении любого значения, value отправляется на сервер
 
-
+//post запрос
   const POST = (min:any, sms:any, gb:any, facebook:any, instagram:any, vk:any, pinterest:any, linkedin:any, whatsapp:any, telegram:any, message:any, mail:any, inbox:any) =>{
     axios.post(
-        `http://localhost:5000/api/posts`,
+        `http://localhost:5000/api/tele`,
         {min, sms, gb, facebook, instagram, vk, pinterest, linkedin, whatsapp, telegram, message, mail, inbox},
         {
           headers: { "Content-Type": "application/json" }
@@ -202,7 +204,9 @@ console.log(checked.instagram);
         console.log(e.response);
       });
   }
+  //post запрос
 
+//slider Handler
   const minHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(CALC.actions.minHandler(value.min))
     setValue({ ...value, min: event.target.value });
@@ -217,42 +221,65 @@ console.log(checked.instagram);
     dispatch(CALC.actions.gbHandler(value.gb))
     setValue({ ...value, gb: event.target.value });
   };
+  //slider Handler
+
 
   return (
+    <div style={{display:'flex', justifyContent:'center'}}>
     <div className="App">
-      <Typography variant="h1" component="div" gutterBottom style={{fontSize:'60px'}}>
-      Настройте тариф
-      </Typography>
-      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
-      Минуты
-      </Typography>
-      <Typography variant="subtitle1" component="div" gutterBottom >
-      На Tele2 по России безлимитно
-      </Typography>
-      <Typography variant="subtitle1" component="div" gutterBottom >
-      на другие мобильные номера домашнего региона
-      </Typography>
-      <SliderMUI
-        value={value?.min}
-        onChange={minHandler}
-        defaultValue={200}
-        getAriaValueText={valuetext}
-        step={0}
-        min={200}
-        max={700}
-        marks={marks}
-      />
-      {visionSMS ? 
-      <Typography variant="subtitle1" component="div" gutterBottom onClick={()=>{
-        setVisionSMS(false)
-               }}>
-               <AddCircleOutlineIcon style={{marginLeft:'20px'}} />
-              Используйте вместе с тарифом
-              </Typography>
-      :
-      <div>
-      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
-         СМС
+  <Typography
+    variant="h1"
+    component="div"
+    gutterBottom
+    style={{ fontSize: "60px" }}
+  >
+    Настройте тариф
+  </Typography>
+  <Typography
+    variant="h2"
+    component="div"
+    gutterBottom
+    style={{ fontSize: "30px" }}
+  >
+    Минуты
+  </Typography>
+  <Typography variant="subtitle1" component="div" gutterBottom>
+    На Tele2 по России безлимитно
+  </Typography>
+  <Typography variant="subtitle1" component="div" gutterBottom>
+    на другие мобильные номера домашнего региона
+  </Typography>
+  <SliderMUI
+    value={value?.min}
+    onChange={minHandler}
+    defaultValue={200}
+    getAriaValueText={valuetext}
+    step={0}
+    min={200}
+    max={700}
+    marks={marks}
+  />
+  {visionSMS ? (
+    <Typography
+      variant="subtitle1"
+      component="div"
+      gutterBottom
+      onClick={() => {
+        setVisionSMS(false);
+      }}
+    >
+      <AddCircleOutlineIcon style={{ marginLeft: "20px" }} />
+      Используйте вместе с тарифом
+    </Typography>
+  ) : (
+    <div>
+      <Typography
+        variant="h2"
+        component="div"
+        gutterBottom
+        style={{ fontSize: "30px", marginTop:'20px' }}
+      >
+        СМС
       </Typography>
       <SliderMUI
         value={value?.sms}
@@ -264,106 +291,123 @@ console.log(checked.instagram);
         max={170}
         marks={marksSMS}
       />
-      </div>
-      }
-       
-      
-      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
-      Интернет
-      </Typography>
-      <SliderMUI
-        value={value?.gb}
-        onChange={gbHandler}
-        defaultValue={20}
-        getAriaValueText={valuetext}
-        step={0}
-        min={5}
-        max={35}
-        marks={marksWeb}
-      />
-         <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
-         Соцсети
-      </Typography>
-      <ul style={{listStyle:'none', display:'flex'}}>
-        <CheckBoxMUI 
-        checked={checked.facebook} 
-        onChange={handleCheckboxFacebook} 
-        icon={<FacebookIcon />} 
-        checkedIcon={<FacebookIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        disabled={value.min<600? true : false}
-        />
-        <CheckBoxMUI 
-        checked={checked.instagram} 
-        onChange={handleCheckboxInstagram} 
-        icon={<InstagramIcon />} 
-        checkedIcon={<InstagramIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        disabled={value.min<350? true : false}
-        />
-        <CheckBoxMUI 
-        checked={checked.vk} 
-        onChange={handleCheckboxVK} 
-        icon={<PublicIcon />} 
-        checkedIcon={<PublicIcon style={{color:'#3f50b5'}} />}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.pinterest} 
-        onChange={handleCheckboxPinterest} 
-        icon={<PinterestIcon />} 
-        checkedIcon={<PinterestIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.linkedin} 
-        onChange={handleCheckboxLinkedIn} 
-        icon={<LinkedInIcon />} 
-        checkedIcon={<LinkedInIcon style={{color:'#3f50b5'}} />}
-        coin={'+20р'}
-        />
-      </ul>
-      <h3>Мессенджеры</h3>
-      <ul style={{listStyle:'none', display:'flex'}}>
-        <CheckBoxMUI 
-        checked={checked.whatsapp} 
-        onChange={handleCheckboxWhatsApp} 
-        icon={<WhatsAppIcon />} 
-        checkedIcon={<WhatsAppIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.telegram} 
-        onChange={handleCheckboxTelegram} 
-        icon={<TelegramIcon />} 
-        checkedIcon={<TelegramIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.message} 
-        onChange={handleCheckboxMessage} 
-        icon={<MessageIcon />} 
-        checkedIcon={<MessageIcon style={{color:'#3f50b5'}} />}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.mail} 
-        onChange={handleCheckboxMail} 
-        icon={<MailOutlineIcon />} 
-        checkedIcon={<MailOutlineIcon style={{color:'#3f50b5'}}/>}
-        coin={'+20р'}
-        />
-        <CheckBoxMUI 
-        checked={checked.inbox} 
-        onChange={handleCheckboxInbox} 
-        icon={<InboxIcon />} 
-        checkedIcon={<InboxIcon style={{color:'#3f50b5'}} />}
-        coin={'+20р'}
-        />
-      </ul>
-      <BottomNavigation style={{ background: "lightblue" }}>
-         <p style={{color:'red'}}>{apivalue}</p>
-      </BottomNavigation>
     </div>
+  )}
+
+  <Typography
+    variant="h2"
+    component="div"
+    gutterBottom
+    style={{ fontSize: "30px",marginTop:'20px' }}
+  >
+    Интернет
+  </Typography>
+  <SliderMUI
+    value={value?.gb}
+    onChange={gbHandler}
+    defaultValue={20}
+    getAriaValueText={valuetext}
+    step={0}
+    min={5}
+    max={35}
+    marks={marksWeb}
+  />
+  <Typography
+    variant="h2"
+    component="div"
+    gutterBottom
+    style={{ fontSize: "30px", marginTop:'20px' }}
+  >
+    Соцсети
+  </Typography>
+  <ul style={{ listStyle: "none", display: "flex" }}>
+    <CheckBoxMUI
+      checked={checked.facebook}
+      onChange={handleCheckboxFacebook}
+      icon={<FacebookIcon />}
+      checkedIcon={<FacebookIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+      disabled={value.min < 600 ? true : false}
+    />
+    <CheckBoxMUI
+      checked={checked.instagram}
+      onChange={handleCheckboxInstagram}
+      icon={<InstagramIcon />}
+      checkedIcon={<InstagramIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+      disabled={value.min < 350 ? true : false}
+    />
+    <CheckBoxMUI
+      checked={checked.vk}
+      onChange={handleCheckboxVK}
+      icon={<PublicIcon />}
+      checkedIcon={<PublicIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.pinterest}
+      onChange={handleCheckboxPinterest}
+      icon={<PinterestIcon />}
+      checkedIcon={<PinterestIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.linkedin}
+      onChange={handleCheckboxLinkedIn}
+      icon={<LinkedInIcon />}
+      checkedIcon={<LinkedInIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+  </ul>
+  <Typography
+    variant="h2"
+    component="div"
+    gutterBottom
+    style={{ fontSize: "30px", marginTop:'20px' }}
+  >
+    Мессенджеры
+  </Typography>
+  <ul style={{ listStyle: "none", display: "flex" }}>
+    <CheckBoxMUI
+      checked={checked.whatsapp}
+      onChange={handleCheckboxWhatsApp}
+      icon={<WhatsAppIcon />}
+      checkedIcon={<WhatsAppIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.telegram}
+      onChange={handleCheckboxTelegram}
+      icon={<TelegramIcon />}
+      checkedIcon={<TelegramIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.message}
+      onChange={handleCheckboxMessage}
+      icon={<MessageIcon />}
+      checkedIcon={<MessageIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.mail}
+      onChange={handleCheckboxMail}
+      icon={<MailOutlineIcon />}
+      checkedIcon={<MailOutlineIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+    <CheckBoxMUI
+      checked={checked.inbox}
+      onChange={handleCheckboxInbox}
+      icon={<InboxIcon />}
+      checkedIcon={<InboxIcon style={{ color: "#3f50b5" }} />}
+      coin={"+20р"}
+    />
+  </ul>
+  <BottomNavigation style={{ background: "lightblue" }}>
+    <p style={{ color: "black",  }}>{apivalue}</p>
+  </BottomNavigation>
+</div>
+</div>
   );
 }
