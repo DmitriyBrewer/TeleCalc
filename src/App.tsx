@@ -70,7 +70,7 @@ export default function App() {
   whatsapp:'',telegram:'', message:'', mail:'', inbox:''
 });
   const [apivalue, setApiValue] = React.useState("")
-
+  const [visionSMS, setVisionSMS] = React.useState(true)
 //redux
   const dispatch: AppDispatch = useDispatch();
 //redux
@@ -242,11 +242,17 @@ console.log(checked.instagram);
         max={700}
         marks={marks}
       />
-       <Typography variant="subtitle1" component="div" gutterBottom onClick={()=>{
-
-       }}>
-       <AddCircleOutlineIcon style={{marginLeft:'20px'}} />
-      Используйте вместе с тарифом
+      {visionSMS ? 
+      <Typography variant="subtitle1" component="div" gutterBottom onClick={()=>{
+        setVisionSMS(false)
+               }}>
+               <AddCircleOutlineIcon style={{marginLeft:'20px'}} />
+              Используйте вместе с тарифом
+              </Typography>
+      :
+      <div>
+      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
+         СМС
       </Typography>
       <SliderMUI
         value={value?.sms}
@@ -258,6 +264,10 @@ console.log(checked.instagram);
         max={170}
         marks={marksSMS}
       />
+      </div>
+      }
+       
+      
       <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
       Интернет
       </Typography>
