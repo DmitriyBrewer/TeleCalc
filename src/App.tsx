@@ -2,14 +2,13 @@ import React,{useEffect} from "react";
 import "./styles.css";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { BottomNavigation } from "@mui/material";
+import Typography from '@mui/material/Typography';
 import axios from "axios";
-
 //redux
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./reducer/store";
 import CALC from "./reducer/calcSlice";
 //redux
-
 //CheckBox icon
 //Социальны сети
 import PublicIcon from '@mui/icons-material/Public';
@@ -47,19 +46,16 @@ export interface ISlider {
 //Slider pharams
 const marks = [
   {value: 200,label: "200 мин"},{value: 350,label: "350 мин"},
-  {value: 600,label: "600 мин"},{value: 650,label: "650 мин"}
+  {value: 600,label: "600"},{value: 650,label: "650 мин"}
 ];
-
 const marksSMS = [
   {value: 0,label: "0 смс"},{value: 50,label: "50 смс"},
   {value: 100,label: "100 смс"},{value: 150,label: "150 смс"}
 ];
-
 const marksWeb = [
   {value: 5,label: "5 ГБ"},{value: 10,label: "10 ГБ"},
   {value: 15,label: "15 ГБ"},{value: 25,label: "25 ГБ"}
 ];
-
 function valuetext(value: number) {
   return `${value}`;
 }
@@ -93,7 +89,7 @@ export default function App() {
   });
 
   ////Handler Доп.услуги 
-//// Соцсети
+// Соцсети
   const handleCheckboxFacebook = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked({...checked, facebook: event.target.checked});
     dispatch(CALC.actions.checkboxFacebook(checked.facebook))
@@ -224,10 +220,18 @@ console.log(checked.instagram);
 
   return (
     <div className="App">
-      <h1>Настройте тариф</h1>
-      <h3>Минуты</h3>
-      <p>На Tele2 по России безлимитно</p>
-      <p>на другие мобильные номера домашнего региона</p>
+      <Typography variant="h1" component="div" gutterBottom style={{fontSize:'60px'}}>
+      Настройте тариф
+      </Typography>
+      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
+      Минуты
+      </Typography>
+      <Typography variant="subtitle1" component="div" gutterBottom >
+      На Tele2 по России безлимитно
+      </Typography>
+      <Typography variant="subtitle1" component="div" gutterBottom >
+      на другие мобильные номера домашнего региона
+      </Typography>
       <SliderMUI
         value={value?.min}
         onChange={minHandler}
@@ -235,13 +239,15 @@ console.log(checked.instagram);
         getAriaValueText={valuetext}
         step={0}
         min={200}
-        max={650}
+        max={700}
         marks={marks}
       />
-      <p>
-        <AddCircleOutlineIcon />
-        Используйте вместе с тарифом
-      </p>
+       <Typography variant="subtitle1" component="div" gutterBottom onClick={()=>{
+
+       }}>
+       <AddCircleOutlineIcon style={{marginLeft:'20px'}} />
+      Используйте вместе с тарифом
+      </Typography>
       <SliderMUI
         value={value?.sms}
         onChange={smsHandler}
@@ -249,10 +255,12 @@ console.log(checked.instagram);
         getAriaValueText={valuetext}
         step={0}
         min={0}
-        max={150}
+        max={170}
         marks={marksSMS}
       />
-      <h3>Интернет</h3>
+      <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
+      Интернет
+      </Typography>
       <SliderMUI
         value={value?.gb}
         onChange={gbHandler}
@@ -260,10 +268,12 @@ console.log(checked.instagram);
         getAriaValueText={valuetext}
         step={0}
         min={5}
-        max={25}
+        max={35}
         marks={marksWeb}
       />
-      <h3>Соцсети</h3>
+         <Typography variant="h2" component="div" gutterBottom style={{fontSize:'30px'}}>
+         Соцсети
+      </Typography>
       <ul style={{listStyle:'none', display:'flex'}}>
         <CheckBoxMUI 
         checked={checked.facebook} 
